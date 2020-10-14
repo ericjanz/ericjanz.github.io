@@ -27,7 +27,7 @@ These are the minimal steps I've found to be needed in order to create a blog on
 #:> git submodule add https://github.com/vaga/hugo-theme-m10c.git themes/m10c
 ~~~
 
-6. Edit the config.toml file to set some parameters (and copy an avatar image into the static folder)
+6. Edit the config.toml file to set some parameters (and copy an avatar image into the *static* folder)
 
 ~~~
 baseURL = "https://USERNAME.github.io/"
@@ -58,10 +58,10 @@ publishDir = "docs" <-- this one is very important for the last step!
 
 8. Run the Hugo local server and validate that the first version of your site is ready
 ~~~
-#:> hugo -D server (with the -D flag you will also see those pages which are still in draft status)
+#:> hugo -D server (with the -D flag you will also see those pages which are still in 'draft' status)
 ~~~
 
-9. Once you are happy, generate the "public" content (it's going to be in the 'docs' folder):
+9. Once you are happy, generate the "public" content (it's going to be in the 'docs' folder, and don't forget to set ***draft:*** *false* in the header of your posts, otherwise *hugo* will not include it in the generated static site, unless you use the -D flag):
 ~~~
 #:> hugo
 ~~~
@@ -75,10 +75,25 @@ publishDir = "docs" <-- this one is very important for the last step!
 #:> git push origin master
 ~~~
 
-11. Once everything is in GitHub, go to 'Settings' and under 'GitHub Pages' establish the publishing directory to be the 'docs' folder
+11. Once everything is in your GitHub repository, go to its 'Settings' and under 'GitHub Pages' establish the publishing source directory to be the '/docs' folder. After changing this setting GitHub pages *says* that the site is published but actually I got a 404 for about 2 hours until it finally appeared :)  
 
-These steps are also (more or less) explained here: https://gohugo.io/hosting-and-deployment/hosting-on-github/, although I have introduced some simplification (only one repo needed, and changed publishing directory to the 'docs' folder).
+These steps are also (more or less) explained here: https://gohugo.io/hosting-and-deployment/hosting-on-github/, although I have introduced some simplification (only one repo needed by changing the source directory to be the '/docs' folder).
 
-Your blog should now be accessible at https://USERNAME.github.io
 
-Note: git does not commit empty folders and when checking out / cloning the repository the **--recursive** flag needs to be used in order to include the theme submodule (otherwise *hugo* will not work)
+Note: *git* does not commit empty folders (which does not seem to be a problem) and when checking out / cloning the repository the **recursive** flag needs to be used in order to include the theme submodule (otherwise *hugo* will not work properly)
+
+12. In order to checkout the repository from Github (this will create a USERNAME.github.io directory):
+~~~
+#:> git clone --recursive https://github.com/USERNAME/USERNAME.github.io.git
+~~~
+
+13. After introducing any change
+~~~
+#:> hugo server <-- check locally that you are happy with the changes
+#:> hugo <-- regenerate the static site
+#:> git add .
+#:> git commit -m "New cool post added"
+#:> git push origin master
+~~~
+
+**Your blog should now (or in a while) be accessible at:** *https://USERNAME.github.io*

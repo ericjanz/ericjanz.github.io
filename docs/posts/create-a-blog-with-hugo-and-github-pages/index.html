@@ -70,7 +70,7 @@
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          2 min read
+          3 min read
         </div>
       </div>
     </header>
@@ -99,7 +99,7 @@
 <pre><code>#:&gt; git init
 #:&gt; git submodule add https://github.com/vaga/hugo-theme-m10c.git themes/m10c
 </code></pre><ol start="6">
-<li>Edit the config.toml file to set some parameters (and copy an avatar image into the static folder)</li>
+<li>Edit the config.toml file to set some parameters (and copy an avatar image into the <em>static</em> folder)</li>
 </ol>
 <pre><code>baseURL = &quot;https://USERNAME.github.io/&quot;
 languageCode = &quot;en-us&quot;
@@ -126,9 +126,9 @@ publishDir = &quot;docs&quot; &lt;-- this one is very important for the last ste
 </code></pre><ol start="8">
 <li>Run the Hugo local server and validate that the first version of your site is ready</li>
 </ol>
-<pre><code>#:&gt; hugo -D server (with the -D flag you will also see those pages which are still in draft status)
+<pre><code>#:&gt; hugo -D server (with the -D flag you will also see those pages which are still in 'draft' status)
 </code></pre><ol start="9">
-<li>Once you are happy, generate the &ldquo;public&rdquo; content (it&rsquo;s going to be in the &lsquo;docs&rsquo; folder):</li>
+<li>Once you are happy, generate the &ldquo;public&rdquo; content (it&rsquo;s going to be in the &lsquo;docs&rsquo; folder, and don&rsquo;t forget to set <em><strong>draft:</strong></em> <em>false</em> in the header of your posts, otherwise <em>hugo</em> will not include it in the generated static site, unless you use the -D flag):</li>
 </ol>
 <pre><code>#:&gt; hugo
 </code></pre><ol start="10">
@@ -139,11 +139,23 @@ publishDir = &quot;docs&quot; &lt;-- this one is very important for the last ste
 #:&gt; git remote add origin https://github.com/USERNAME/USERNAME.github.io.git
 #:&gt; git push origin master
 </code></pre><ol start="11">
-<li>Once everything is in GitHub, go to &lsquo;Settings&rsquo; and under &lsquo;GitHub Pages&rsquo; establish the publishing directory to be the &lsquo;docs&rsquo; folder</li>
+<li>Once everything is in your GitHub repository, go to its &lsquo;Settings&rsquo; and under &lsquo;GitHub Pages&rsquo; establish the publishing source directory to be the &lsquo;/docs&rsquo; folder. After changing this setting GitHub pages <em>says</em> that the site is published but actually I got a 404 for about 2 hours until it finally appeared :)</li>
 </ol>
-<p>These steps are also (more or less) explained here: <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/,">https://gohugo.io/hosting-and-deployment/hosting-on-github/,</a> although I have introduced some simplification (only one repo needed, and changed publishing directory to the &lsquo;docs&rsquo; folder).</p>
-<p>Your blog should now be accessible at <a href="https://USERNAME.github.io">https://USERNAME.github.io</a></p>
-<p>Note: git does not commit empty folders and when checking out / cloning the repository the <strong>&ndash;recursive</strong> flag needs to be used in order to include the theme submodule (otherwise <em>hugo</em> will not work)</p>
+<p>These steps are also (more or less) explained here: <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/,">https://gohugo.io/hosting-and-deployment/hosting-on-github/,</a> although I have introduced some simplification (only one repo needed by changing the source directory to be the &lsquo;/docs&rsquo; folder).</p>
+<p>Note: <em>git</em> does not commit empty folders (which does not seem to be a problem) and when checking out / cloning the repository the <strong>recursive</strong> flag needs to be used in order to include the theme submodule (otherwise <em>hugo</em> will not work properly)</p>
+<ol start="12">
+<li>In order to checkout the repository from Github (this will create a USERNAME.github.io directory):</li>
+</ol>
+<pre><code>#:&gt; git clone --recursive https://github.com/USERNAME/USERNAME.github.io.git
+</code></pre><ol start="13">
+<li>After introducing any change</li>
+</ol>
+<pre><code>#:&gt; hugo server &lt;-- check locally that you are happy with the changes
+#:&gt; hugo &lt;-- regenerate the static site
+#:&gt; git add .
+#:&gt; git commit -m &quot;New cool post added&quot;
+#:&gt; git push origin master
+</code></pre><p><strong>Your blog should now (or in a while) be accessible at:</strong> <em><a href="https://USERNAME.github.io">https://USERNAME.github.io</a></em></p>
 
     </div>
     <div class="post-footer">
