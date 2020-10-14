@@ -1,0 +1,18 @@
+baseURL = "https://ericjanz.github.io/"
+languageCode = "en-us"
+title = "Just a bunch of mental notes"
+theme = "m10c"
+publishDir = "docs"
+
+[params]
+  author = "Eric Janz"
+  avatar = "avatar-eric-200x200.png"
+  # description = "“The cheapest, fastest, and most reliable components are those that aren’t there.” Gordon Bell"
+  description = "“Simplicity is the ultimate sophistication.” Leonardo da Vinci"
+  menu_item_separator = " - "
+  [[params.social]]
+    name = "github"
+    url = "https://github.com/ericjanz"
+  [[params.social]]
+    name = "twitter"
+    url = "https://twitter.com/ericjanz"

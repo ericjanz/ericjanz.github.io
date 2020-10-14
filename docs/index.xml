@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Just a bunch of mental notes</title>
+    <link>https://ericjanz.github.io/</link>
+    <description>Recent content on Just a bunch of mental notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 13 Oct 2020 21:15:38 +0200</lastBuildDate><atom:link href="https://ericjanz.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Create an Avatar Easily</title>
+      <link>https://ericjanz.github.io/posts/create-an-avatar-easily/</link>
+      <pubDate>Tue, 13 Oct 2020 21:15:38 +0200</pubDate>
+      
+      <guid>https://ericjanz.github.io/posts/create-an-avatar-easily/</guid>
+      <description>After looking for more than an hour to find an easy to use, hopefully ad and virus free avatar creation site, the best I&amp;rsquo;ve found is https://avatarmaker.com.
+It&amp;rsquo;s easy, fast and free. It even allows to upload your newly created avatar directly to Gravatar.
+Only handicap is that it does not allow you to create an avatar from a photo, buy anyway I did not find any free easy to use site that creates avatars from pics.</description>
+    </item>
+    
+    <item>
+      <title>Create a Blog With Hugo and Github Pages</title>
+      <link>https://ericjanz.github.io/posts/create-a-blog-with-hugo-and-github-pages/</link>
+      <pubDate>Tue, 13 Oct 2020 20:03:40 +0200</pubDate>
+      
+      <guid>https://ericjanz.github.io/posts/create-a-blog-with-hugo-and-github-pages/</guid>
+      <description>These are the minimal steps I&amp;rsquo;ve found to be needed in order to create a blog on GitHub Pages using Hugo (provided Git works already):
+  Install Hugo (just download it from https://github.com/gohugoio/hugo/releases)
+  Create an account on GitHub (if you don&amp;rsquo;t have one)
+  Create a new repository matching your USERNAME.github.io
+  Once you have the repositories created (and hugo in your path):
+  #:&amp;gt; mkdir USERNAME.</description>
+    </item>
+    
+    <item>
+      <title>Using Netcat and Tar to Exfiltrate Data</title>
+      <link>https://ericjanz.github.io/posts/using-netcat-and-tar-to-exfiltrate-data/</link>
+      <pubDate>Tue, 13 Oct 2020 18:52:02 +0200</pubDate>
+      
+      <guid>https://ericjanz.github.io/posts/using-netcat-and-tar-to-exfiltrate-data/</guid>
+      <description>Little note on how to use netcat in combination with tar to transmit data between servers when no other easier transfer protocol is available (for example no ssh client or connectivity).
+On the &amp;ldquo;server/destination&amp;rdquo; side (in Linux) run:
+#:&amp;gt; netcat -l -p 7000 | tar x
+On the &amp;ldquo;client/origin&amp;rdquo; side (in Linux) run:
+#:&amp;gt; tar cf - * | netcat otherhost 7000
+ can be a filename (for example an already prepared tar.</description>
+    </item>
+    
+  </channel>
+</rss>
